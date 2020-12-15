@@ -40,13 +40,14 @@ require_once(__DIR__.'/../vendor/autoload.php');
 
             //a dans son inventaire
  if($player->hasInInventory("lampe")){
-     $scene->setChoice($choice3);
+     $scene->addChoice($choice3);
      assert($scene->userChoice($choice3) == "utilise la lampe");
  }
 
  assert($scene->userChoice($choice) == "aller a droite");
  assert($scene->userChoice($choice2) == "aller a gauche");
 
+ assert($scene->getAllChoice() == 3);
 
 
 //mettre les if sous forme de test avec assert. Les if seront utilisés en prod

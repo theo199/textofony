@@ -6,7 +6,7 @@ class Scene{
 
   private $description;
   private $choice = [];
-  
+
 
   public function setDescription($description){
     $this->description = $description;
@@ -19,6 +19,10 @@ class Scene{
   public function addChoice($choix){
     $choice = $this->choice;
     array_push($choice, $choix);
+    $this->choice = $choice;
   }
 
+  public function userChoice($choix){
+
+  }
 }
