@@ -28,7 +28,7 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert($player->getInventory() == ["bol"]); //=> renvoyer false car objet n'a pas été créé
 
  $choice = new $Choice("aller a droite", $scene2);
- $choice2 = new $Choice("aller a droite", $scene3);
+ $choice2 = new $Choice("aller a gauche", $scene3);
  $choice3 = new $Choice("utilise la lampe", $scene4);
  $scene->addChoice($choice);
  $scene->addChoice($choice2);
@@ -46,13 +46,13 @@ require_once(__DIR__.'/../vendor/autoload.php');
 
 //mettre les if sous forme de test avec assert. Les if seront utilisés en prod
 
-//  if($scene->getUserChoice() == $choice) {
-//      assert($player->getActuelScene() == $scene2);
-//  }elseif($scene->getUserChoice() == $choice2){
-//     assert($player->getActuelScene() == $scene3);
-//  }elseif($scene->getUserChoice() == $choice3){
-//     assert($player->getActuelScene() == $scene4);
-//  }
+ if($scene->getUserChoice() == $choice) {
+     assert($player->getActuelScene() == $scene2);
+ }elseif($scene->getUserChoice() == $choice2){
+    assert($player->getActuelScene() == $scene3);
+ }elseif($scene->getUserChoice() == $choice3){
+    assert($player->getActuelScene() == $scene4);
+ }
 
  $scene->getUserChoice() == $choice;
  assert($player->getActuelScene() == $scene2);
@@ -60,5 +60,15 @@ require_once(__DIR__.'/../vendor/autoload.php');
  $scene->getUserChoice() == $choice2
  assert($player->getActuelScene() == $scene3);
 
+<<<<<<< HEAD
  $scene->getUserChoice() == $choice3
  assert($player->getActuelScene() == $scene4);
+=======
+ if($scene->getUserChoice() == $choice) {
+     assert($player->getActuelScene() == $scene2);
+ }elseif($scene->getUserChoice() == $choice2){
+    assert($player->getActuelScene() == $scene3);
+ }elseif($scene->getUserChoice() == $choice3){
+    assert($player->getActuelScene() == $scene3);
+ }
+>>>>>>> a145fa4b8e9707b751c14f8169bc7126451513ff
