@@ -3,47 +3,62 @@
 require_once(__DIR__.'/../vendor/autoload.php');
 
  $player = new Player();
- $player->setinventory();
- assert($player->getinventory() == []);
+ $player->setInventory();
+ assert($player->getInventory() == []);
 
  $scene = new Scene();
- $scene->setscene($scene, "hero arrive en scene" );
- assert(is_string($scene->getscenes()));
- assert($scene->getscene($scene) == "hero arrive en scene");
+ $scene->setDescription("hero arrive en scene" );
+ assert(is_string($scene->getDescription()));
+ assert($scene->getDescription == "hero arrive en scene");
 
 
  $scene2 = new Scene();
- $scene2->setscene($scene2, "hero sort de la scene" );
- assert(is_string($scene2->getscenes()));
- assert($scene2->getscene($scene2) == "hero sort de la scene");
+ $scene2->setDescription("hero sort de la scene" );
+ assert(is_string($scene2->getDescription()));
+ assert($scene2->getDescription == "hero sort de la scene");
 
  $scene3 = new Scene();
- $scene3->setscene($scene3, "hero meurt" );
- assert(is_string($scene3->getscenes()));
- assert($scene3->getscene($scene3) == "hero meurt");
+ $scene3->setDescription("hero meurt" );
+ assert(is_string($scene3->getScenes()));
+ assert($scene3->getDescription == "hero meurt");
 
 
- $player->add_object("lampe");
- assert($player->getinventory == ["lampe"]);
+ $player->addObject("lampe");
+ assert($player->getInventory() == ["lampe"]); //=> renvoyer true car objet a été créé
+ assert($player->getInventory() == ["bol"]); //=> renvoyer false car objet n'a pas été créé
 
  $choice = new $Choice("aller a droite", $scene2);
  $choice2 = new $Choice("aller a droite", $scene3);
  $choice3 = new $Choice("utilise la lampe", $scene4);
- $scene->setchoice($choice);
- $scene->setchoice($choice2);
- if($player->getinventory == ["lampe"]){
-     $scene->setchoice($choice3);
-     assert($scene->user_choice($choice3) == "utilise la lampe");
+ $scene->addChoice($choice);
+ $scene->addChoice($choice2);
+
+            //a dans son inventaire
+ if($player->asInInventory == ["lampe"]){
+     $scene->setChoice($choice3);
+     assert($scene->userChoice($choice3) == "utilise la lampe");
  }
 
- assert($scene->user_choice($choice) == "aller a droite");
- assert($scene->user_choice($choice2) == "aller a gauche");
+ assert($scene->userChoice($choice) == "aller a droite");
+ assert($scene->userChoice($choice2) == "aller a gauche");
 
 
- if($scene->getUserChoice() == $choice) {
-     assert($player->getActuelScene() == $scene2);
- }elseif($scene->getUserChoice() == $choice2){
-    assert($player->getActuelScene() == $scene3);
- }elseif($scene->getUserChoice() == $choice3){
-    assert($player->getActuelScene() == $scene3);
- }
+
+//mettre les if sous forme de test avec assert. Les if seront utilisés en prod
+
+//  if($scene->getUserChoice() == $choice) {
+//      assert($player->getActuelScene() == $scene2);
+//  }elseif($scene->getUserChoice() == $choice2){
+//     assert($player->getActuelScene() == $scene3);
+//  }elseif($scene->getUserChoice() == $choice3){
+//     assert($player->getActuelScene() == $scene4);
+//  }
+
+ $scene->getUserChoice() == $choice;
+ assert($player->getActuelScene() == $scene2);
+
+ $scene->getUserChoice() == $choice2
+ assert($player->getActuelScene() == $scene3);
+
+ $scene->getUserChoice() == $choice3
+ assert($player->getActuelScene() == $scene4);
