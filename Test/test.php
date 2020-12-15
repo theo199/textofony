@@ -2,22 +2,22 @@
 
 require_once(__DIR__.'/../vendor/autoload.php');
 
- $player = new Player();
+ $player = new \Textofony\Player();
  $player->setInventory();
  assert($player->getInventory() == []);
 
- $scene = new Scene();
+ $scene = new \Textofony\Scene();
  $scene->setDescription("hero arrive en scene" );
  assert(is_string($scene->getDescription()));
  assert($scene->getDescription() == "hero arrive en scene");
 
 
- $scene2 = new Scene();
+ $scene2 = new \Textofony\Scene();
  $scene2->setDescription("hero sort de la scene" );
  assert(is_string($scene2->getDescription()));
  assert($scene2->getDescription() == "hero sort de la scene");
 
- $scene3 = new Scene();
+ $scene3 = new \Textofony\Scene();
  $scene3->setDescription("hero meurt" );
  assert(is_string($scene3->getScenes()));
  assert($scene3->getDescription() == "hero meurt");
@@ -27,14 +27,14 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert($player->getInventory() == ["lampe"]); //=> renvoyer true car objet a été créé
  assert($player->getInventory() == ["bol"]); //=> renvoyer false car objet n'a pas été créé
 
- $choice = new $Choice("aller a droite", $scene2);
- $choice2 = new $Choice("aller a gauche", $scene3);
- $choice3 = new $Choice("utilise la lampe", $scene4);
+ $choice = new Choice("aller a droite", $scene2);
+ $choice2 = new Choice("aller a gauche", $scene3);
+ $choice3 = new Choice("utilise la lampe", $scene4);
  $scene->addChoice($choice);
  $scene->addChoice($choice2);
 
             //a dans son inventaire
- if($player->asInInventory() == ["lampe"]){
+ if($player->hasInInventory("lampe") == ["lampe"]){
      $scene->setChoice($choice3);
      assert($scene->userChoice($choice3) == "utilise la lampe");
  }

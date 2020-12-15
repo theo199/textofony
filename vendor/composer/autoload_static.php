@@ -7,21 +7,17 @@ namespace Composer\Autoload;
 class ComposerStaticInit4c54944ac2a73dffd3cb2ddf131dd485
 {
     public static $prefixLengthsPsr4 = array (
-        't' => 
+        'T' => 
         array (
-            'textofony\\' => 10,
+            'Textofony\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'textofony\\' => 
+        'Textofony\\' => 
         array (
             0 => __DIR__ . '/../..' . '/textofony/src',
         ),
-    );
-
-    public static $classMap = array (
-        'textofony\\Player' => __DIR__ . '/../..' . '/textofony/src/Player.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -29,7 +25,6 @@ class ComposerStaticInit4c54944ac2a73dffd3cb2ddf131dd485
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit4c54944ac2a73dffd3cb2ddf131dd485::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit4c54944ac2a73dffd3cb2ddf131dd485::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit4c54944ac2a73dffd3cb2ddf131dd485::$classMap;
 
         }, null, ClassLoader::class);
     }

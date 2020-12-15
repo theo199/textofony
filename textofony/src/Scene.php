@@ -1,6 +1,6 @@
 <?php
 
-namespace textofony;
+namespace Textofony;
 
 class Scene{
 
