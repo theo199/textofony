@@ -41,11 +41,11 @@ require_once(__DIR__.'/../vendor/autoload.php');
             //a dans son inventaire
  if($player->hasInInventory("lampe")){
      $scene->addChoice($choice3);
-     assert($scene->userChoice($choice3) == "utilise la lampe");
+     assert($scene->userChoice($choice3) == $choice3);
  }
 
- assert($scene->userChoice($choice) == "aller a droite");
- assert($scene->userChoice($choice2) == "aller a gauche");
+ assert($scene->userChoice($choice) == $choice);
+ assert($scene->userChoice($choice2) == $choice2);
 
  assert($scene->getAllChoice() == 3);
 

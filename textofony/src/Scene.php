@@ -6,7 +6,7 @@ class Scene{
 
   private $description;
   private $choice = [];
-
+  private $userChoice;
 
   public function setDescription($description){
     $this->description = $description;
@@ -23,6 +23,12 @@ class Scene{
   }
 
   public function userChoice($choix){
-
+    $choice = $this->choice;
+    foreach ($choice as $key => $value) {
+      if ($value == $choix) {
+        $this->userChoice = $choix
+        return $choix;
+      }
+    }
   }
 }
