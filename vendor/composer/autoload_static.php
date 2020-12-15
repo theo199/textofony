@@ -7,21 +7,21 @@ namespace Composer\Autoload;
 class ComposerStaticInit4c54944ac2a73dffd3cb2ddf131dd485
 {
     public static $prefixLengthsPsr4 = array (
-        'T' => 
+        't' => 
         array (
-            'Textofony\\' => 10,
+            'textofony\\' => 10,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Textofony\\' => 
+        'textofony\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/Textofony/src',
+            0 => __DIR__ . '/../..' . '/textofony/src',
         ),
     );
 
     public static $classMap = array (
-        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'textofony\\Player' => __DIR__ . '/../..' . '/textofony/src/Player.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
