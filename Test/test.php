@@ -27,7 +27,7 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert($player->getinventory == ["lampe"]);
 
  $choice = new $Choice("aller a droite", $scene2);
- $choice2 = new $Choice("aller a droite", $scene3);
+ $choice2 = new $Choice("aller a gauche", $scene3);
  $choice3 = new $Choice("utilise la lampe", $scene4);
  $scene->setchoice($choice);
  $scene->setchoice($choice2);
