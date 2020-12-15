@@ -10,7 +10,7 @@ class Choice{
 
   public function __construct($description, $nextScene){
     $this->description = $description;
-    $this->$nextScene = $nextScene;
+    $this->nextScene = $nextScene;
   }
 
 }

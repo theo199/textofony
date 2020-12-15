@@ -22,6 +22,11 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert(is_string($scene3->getDescription()));
  assert($scene3->getDescription() == "hero meurt");
 
+ $scene4 = new \Textofony\Scene();
+ $scene4->setDescription("hero utilise la lampe" );
+ assert(is_string($scene4->getDescription()));
+ assert($scene4->getDescription() == "hero utilise la lampe");
+
 
  $player->addObject("lampe");
  assert($player->getInventory() == ["lampe"]); //=> renvoyer true car objet a été créé
