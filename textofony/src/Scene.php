@@ -26,7 +26,7 @@ class Scene{
     $choice = $this->choice;
     foreach ($choice as $key => $value) {
       if ($value == $choix) {
-        $this->userChoice = $choix
+        $this->userChoice = $choix;
         return $choix;
       }
     }
