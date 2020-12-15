@@ -15,6 +15,18 @@ class Player{
   }
 
   public function addObject($objet){
+    $inventory = $this->inventory;
+    array_push($inventory, $objet);
+    $this->inventory = $inventory;
+  }
+
+  public function hasInInventory($objet){
+    $inventory = $this->inventory;
+    if (in_array($objet, $inventory)) {
+      return true;
+    }else {
+      return false;
+    }
 
   }
 
