@@ -50,8 +50,16 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert($scene->getAllChoice() == 3);
 
 
-//mettre les if sous forme de test avec assert. Les if seront utilisés en prod
 
+$scene->userChoice($choice);
+ assert($player->getActuelScene() == $scene2);
+
+ $scene->userChoice($choice2);
+ assert($player->getActuelScene() == $scene3);
+
+
+
+ //mettre les if sous forme de test avec assert. Les if seront utilisés en prod
  if($scene->getUserChoice() == $choice) {
      assert($player->getActuelScene() == $scene2);
  }elseif($scene->getUserChoice() == $choice2){
@@ -59,9 +67,3 @@ require_once(__DIR__.'/../vendor/autoload.php');
  }elseif($scene->getUserChoice() == $choice3){
     assert($player->getActuelScene() == $scene4);
  }
-
-$scene->userChoice($choice);
- assert($player->getActuelScene() == $scene2);
-
- $scene->userChoice($choice2);
- assert($player->getActuelScene() == $scene3);

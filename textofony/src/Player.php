@@ -30,4 +30,8 @@ class Player{
 
   }
 
+  public function getActuelScene(){
+    
+  }
+
 }
