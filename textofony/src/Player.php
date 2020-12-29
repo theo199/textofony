@@ -5,6 +5,7 @@ namespace Textofony;
 class Player{
 
   private $inventory;
+  private $actualScene;
 
   public function setInventory(){
     $this->inventory = [];
@@ -30,8 +31,17 @@ class Player{
 
   }
 
-  public function getActuelScene(){
-    
+  public function startStory($scene){
+    $this->actualScene = $scene;
   }
+
+  public function setActualScene($scene){
+    $this->actualScene = $scene;
+  }
+
+  public function getActuelScene(){
+    return $this->actualScene;
+  }
+  
 
 }

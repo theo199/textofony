@@ -11,6 +11,8 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert(is_string($scene->getDescription()));
  assert($scene->getDescription() == "hero arrive en scene");
 
+ $player->startStory($scene);
+ assert($player->getActuelScene() == $scene);
 
  $scene2 = new \Textofony\Scene();
  $scene2->setDescription("hero sort de la scene" );
@@ -50,11 +52,12 @@ require_once(__DIR__.'/../vendor/autoload.php');
  assert($scene->getAllChoice() == 3);
 
 
-
 $scene->userChoice($choice);
+$player->setActualScene($scene2);
  assert($player->getActuelScene() == $scene2);
 
  $scene->userChoice($choice2);
+ $player->setActualScene($scene3);
  assert($player->getActuelScene() == $scene3);
 
 

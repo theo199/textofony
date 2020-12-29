@@ -35,4 +35,10 @@ class Scene{
 public function getAllChoice(){
   return count($this->choice);
 }
+
+public function getUserChoice(){
+      return $this->userChoice;
+    }
+
+
 }
