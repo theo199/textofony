@@ -13,4 +13,12 @@ class Choice{
     $this->nextScene = $nextScene;
   }
 
+  public function getDescription(){
+    return $this->description;
+  }
+
+  public function getNextScene(){
+    return $this->nextScene;
+  }
+
 }

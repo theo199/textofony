@@ -6,7 +6,7 @@ require_once(__DIR__.'/../vendor/autoload.php');
  $player->setInventory();
  assert($player->getInventory() == []);
 
- $scene = new \Textofony\Scene();
+ $scene = new \Textofony\Scene("test.php");
  $scene->setDescription("hero arrive en scene" );
  assert(is_string($scene->getDescription()));
  assert($scene->getDescription() == "hero arrive en scene");

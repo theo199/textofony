@@ -7,9 +7,22 @@ class Scene{
   private $description;
   private $choice = [];
   private $userChoice;
+  private $page;
+
+  public function __construct($page = ""){
+    $this->page = $page;
+  }
+
+  public function getPage(){
+    return $this->page;
+  }
 
   public function setDescription($description){
     $this->description = $description;
+  }
+
+  public function getChoice(){
+    return $this->choice;
   }
 
   public function getDescription(){
