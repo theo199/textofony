@@ -3,10 +3,9 @@ require_once(__DIR__.'/../../vendor/autoload.php');
 
 session_start();
 
+$_SESSION['Player']->setActualScene($_SESSION['scene']);
 $actualScene = $_SESSION['Player']->getActuelScene();
-$choice = $_SESSION['actualScene']->getChoice();
-
-
+$choice = $actualScene->getChoice();
 
 echo $actualScene->getDescription()."</br>";
 foreach ($choice as $key => $value) {
